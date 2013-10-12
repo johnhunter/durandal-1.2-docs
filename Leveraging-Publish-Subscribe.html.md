@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','pub-sub','how to']
 ---
 # Leveraging Publish and Subscribe
-#### 
+####
 
 <blockquote>
   <strong>Key Points</strong>
@@ -41,12 +41,12 @@ By doing this, _myObj_ gains the following functions:
 * `trigger` - Trigger this object's events.
 * `proxy` - Proxy this object's events.
 
-You can see the [events](/documentation/Events) module reference documentation for more detailed information on these.
+You can see the [events](Events.html.md) module reference documentation for more detailed information on these.
 Some exmaples of using the _app_ module's events are demonstrated below.
 
 ### Using Application-Wide Messaging
 
-By default, the _app_ module has already had the events capability added to it. 
+By default, the _app_ module has already had the events capability added to it.
 This sets you up to do application-wide messaging out-of-the-box. In light of that, here's a few simple use cases:
 
 **Publishing an app-wide message.**

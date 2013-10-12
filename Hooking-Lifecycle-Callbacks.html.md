@@ -4,18 +4,18 @@ layout: docs
 tags: ['docs','lifecycle','how to']
 ---
 # Hooking Lifecycle Callbacks
-#### 
+####
 
 <blockquote>
   <strong>Key Points</strong>
   <ul>
     <li>The view locator, view model binder, composition engine and activator all look for callbacks related to their individual functions.</li>
     <li>Composition involves the view locator, the view model binder and it's own DOM manipulation.</li>
-    <li>Activator callbacks are not executed unless an [activator](/documentation/View-Model) is present or `activate:true` is set on the compose binding.</li>
+    <li>Activator callbacks are not executed unless an [activator](View-Model.html.md) is present or `activate:true` is set on the compose binding.</li>
   </ul>
 </blockquote>
 
-There are various services which play a role in the construction of a screen or of part of a screen. 
+There are various services which play a role in the construction of a screen or of part of a screen.
 Each of these services looks for callbacks on your objects that pertain to its own unique functionality.
 Below is a list of the services which may be involved and an explanation of the available callbacks in each context.
 
@@ -23,12 +23,12 @@ Below is a list of the services which may be involved and an explanation of the 
 
 When the composition engine (or you) calls `viewLocator.locateViewForObject()` it goes through a process of attempting to find the correct view for that object.
 Usually, this is accomplished through convention. But, there is a hook which your object can implement to manually return a view.
-To do so, add a function called `getView()` to your object. This function can either return a _view id_, used by the infrastructure to lookup the view, 
+To do so, add a function called `getView()` to your object. This function can either return a _view id_, used by the infrastructure to lookup the view,
 or it can return a DOMElement, allowing your object to manually construct it's view for absolute control.
 
 ### View Model Binder Callbacks
 
-Once a view is obtained, the composition engine will attempt to bind it to the associated object. 
+Once a view is obtained, the composition engine will attempt to bind it to the associated object.
 To do this, it uses the view model binder, which looks for two possible hooks on your object. It calls `beforeBind()` just before the databinding happens.
 After databinding is complete, it calls `afterBind()`. In both cases it passes the view as an argument.
 
@@ -62,7 +62,7 @@ If present, it will be called. If it returns false, activation stops here.
 * **deactivate** - If the previous value can deactivate and the new value can activate, then will call the previous value's `deactivate()` function, if present.
 * **activate** - Assuming everything has gone well up to this point: if the new value has an `activate()` function, we call that and the process finishes until a new activation begins.
 
-You can read much more about this in the [view model module's docs](/documentation/View-Model). Remember that all these hooks can return promises and all of them are optional
+You can read much more about this in the [view model module's docs](View-Model.html.md). Remember that all these hooks can return promises and all of them are optional
 
 ### Full Lifecycle
 
@@ -77,49 +77,49 @@ Below is a table which shows the order of callbacks and their sources, assuming 
 
   <tr class="success">
     <td>`getView()`</td>
-    <td>[View Locator](/documentation/View-Locator)</td>
+    <td>[View Locator](View-Locator.html.md)</td>
     <td>Enables the new object to return a custom view.</td>
   </tr>
 
   <tr class="warning">
     <td>`canDeactivate()`</td>
-    <td>[View Model](/documentation/View-Model)</td>
+    <td>[View Model](View-Model.html.md)</td>
     <td>Allows the previous object to cancel deactivation.</td>
   </tr>
 
   <tr class="warning">
     <td>`canActivate()`</td>
-    <td>[View Model](/documentation/View-Model)</td>
+    <td>[View Model](View-Model.html.md)</td>
     <td>Allows the new object to cancel activation.</td>
   </tr>
 
   <tr class="warning">
     <td>`deactivate()`</td>
-    <td>[View Model](/documentation/View-Model)</td>
+    <td>[View Model](View-Model.html.md)</td>
     <td>Allows the previous object to execute custom deactivation logic.</td>
   </tr>
 
   <tr class="warning">
     <td>`activate()`</td>
-    <td>[View Model](/documentation/View-Model)</td>
+    <td>[View Model](View-Model.html.md)</td>
     <td>Allows the new object to execute custom activation logic.</td>
   </tr>
 
   <tr class="success">
     <td>`beforeBind()`</td>
-    <td>[View Model Binder](/documentation/View-Model-Binder)</td>
+    <td>[View Model Binder](View-Model-Binder.html.md)</td>
     <td>Notifies the new object immediately before databinding occurs.</td>
   </tr>
 
   <tr class="success">
     <td>`afterBind()`</td>
-    <td>[View Model Binder](/documentation/View-Model-Binder)</td>
+    <td>[View Model Binder](View-Model-Binder.html.md)</td>
     <td>Notifies the new object immediately after databinding occurs.</td>
   </tr>
 
   <tr class="success">
     <td>`viewAttached()`</td>
-    <td>[Composition](/documentation/Composition)</td>
+    <td>[Composition](Composition.html.md)</td>
     <td>Notifies the new object when its view is attached to its parent DOM node.</td>
   </tr>
 </table>

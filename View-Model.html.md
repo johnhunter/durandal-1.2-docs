@@ -4,24 +4,24 @@ layout: docs
 tags: ['docs','view model','reference']
 ---
 # View Model
-#### 
+####
 
 
-> The _viewModel_ module contains functionality designed to assist in advanced screen state scenarios. It implements the *Screen Activator* pattern. 
+> The _viewModel_ module contains functionality designed to assist in advanced screen state scenarios. It implements the *Screen Activator* pattern.
 
 This module has the following API:
 
 1. `function activator([initialActiveItem, settings]) : activator` - This creates a computed observable which enforces a _lifecycle_ on all values the observable is set to. When creating the activator, you can specify an _initialActiveItem_ to activate. You can also specify a _settings_ object. Use of the settings object is for advanced scenarios and will not be detailed much here.
 
 2. `defaults` - A property which is the home to some basic settings and functions that control how all activators work. These are used to create the instance _settings_ object for each activator. They can be overriden on a per-instance-basis by passing a settings object when creating an activator or by accessing the settings property of the activator. To change them for all activators, change them on the _defaults_ property. The two most common customizations are presented below. See the source for additional information.
-    * [overridable](/documentation/Overridable) `function interpretResponse(value) : bool` - Interprets values returned from guard methods like _canActivate_ and _canDeactivate_ by transforming them into bools. The default implementation translates string values "Yes" and "Ok" as true...and all other string values as false. Non string values evaluate according to the truthy/falsey values of JavaScript. Replace this function with your own to expand or set up different values. This transformation is used by the activator internally and allows it to work smoothly in the common scenario where a deactivated item needs to show a message box to prompt the user before closing. Since the message box returns a promise that resolves to the button option the user selected, it can be automatically processed as part of the activator's guard check.
-    * [overridable](/documentation/Overridable) `function areSameItem(currentItem,  newItem, activationData) : bool` - When the activator attempts to activate an item as described below, it will only activate the new item, by default, if it is a different instance than the current. Overwrite this function to change that behavior.
+    * [overridable](Overridable.html.md) `function interpretResponse(value) : bool` - Interprets values returned from guard methods like _canActivate_ and _canDeactivate_ by transforming them into bools. The default implementation translates string values "Yes" and "Ok" as true...and all other string values as false. Non string values evaluate according to the truthy/falsey values of JavaScript. Replace this function with your own to expand or set up different values. This transformation is used by the activator internally and allows it to work smoothly in the common scenario where a deactivated item needs to show a message box to prompt the user before closing. Since the message box returns a promise that resolves to the button option the user selected, it can be automatically processed as part of the activator's guard check.
+    * [overridable](Overridable.html.md) `function areSameItem(currentItem,  newItem, activationData) : bool` - When the activator attempts to activate an item as described below, it will only activate the new item, by default, if it is a different instance than the current. Overwrite this function to change that behavior.
 
 ### Lifecycle
 
 The activator enforces a lifecycle on all it's values. Other than that, it operates like a standard observable. Below is an explanation of the lifecycle events you can hook into for advanced screen scenarios. To participate in the lifecycle, implement any (or none) of the functions below on the object that you set the activator to:
 
-* `function canActivate() : bool/promise` - Adding this function allows you to tell the activator whether or not it can be set to this value at the current time. You can return a bool value, for a synchronous response, or a promise that resolves to a bool, for an asynchronous check. 
+* `function canActivate() : bool/promise` - Adding this function allows you to tell the activator whether or not it can be set to this value at the current time. You can return a bool value, for a synchronous response, or a promise that resolves to a bool, for an asynchronous check.
 
 * `function activate() : undefined/promise` - Adding this function allows the activator to call back into the value when it has been successfully set. You can optionally return a promise to tell the activator when your async activation logic has completed.
 

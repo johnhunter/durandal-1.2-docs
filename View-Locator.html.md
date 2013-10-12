@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','view locator','reference']
 ---
 # View Locator
-#### 
+####
 
 > The _viewLocator module_ collaborates with the _viewEngine module_ to provide views (literally dom sub-trees) to other parts of the framework as needed. The primary consumer of the _viewLocator_ is the _composition module_.
 
@@ -30,8 +30,8 @@ All parameters are optional. If none are specified, the convention will map modu
 
 The _viewLocator_ allows for a very simple pattern of creating a module per view model or model and a corresponding view per module. Naturally, by using the _composition module_ view resolution behavior can be customized in a variety of ways, but you may also want to customize this module directly with your own general mapping convention. There are three functions exported by the _viewLocator_ which you can use to easily do this.
 
-* [overridable](/documentation/Overridable) `function convertModuleIdToViewId(moduleId) : string` - This function does nothing by default which is why _editCustomer.js_ is mapped to _editCustomer.html_ (both have the same underlying id of _editCustomer_). Replace this function with your own implementation to easily create your own mapping logic based on _moduleId_.
+* [overridable](Overridable.html.md) `function convertModuleIdToViewId(moduleId) : string` - This function does nothing by default which is why _editCustomer.js_ is mapped to _editCustomer.html_ (both have the same underlying id of _editCustomer_). Replace this function with your own implementation to easily create your own mapping logic based on _moduleId_.
 
-* [overridable](/documentation/Overridable) `function determineFallbackViewId(obj) : string` - As mentioned above, if no view id can be determined, the system falls back to attempting to determine the object's type and then uses that. This function contains the implementation of that fallback behavior. Replace it if you desire something different. Under normal usage however, this function should not be called.
+* [overridable](Overridable.html.md) `function determineFallbackViewId(obj) : string` - As mentioned above, if no view id can be determined, the system falls back to attempting to determine the object's type and then uses that. This function contains the implementation of that fallback behavior. Replace it if you desire something different. Under normal usage however, this function should not be called.
 
-* [overridable](/documentation/Overridable) `function translateViewIdToArea(viewId, area) : string` - When a view area is specified, it along with the requested view id will be passed to this function, allowing you to customize the path of your view. You can specify area as part of the _locateView_ call, but more commonly you would specify it as part of a compose binding. Any compose binding that does not include a model, but only a view, has a default area of 'partial'.
+* [overridable](Overridable.html.md) `function translateViewIdToArea(viewId, area) : string` - When a view area is specified, it along with the requested view id will be passed to this function, allowing you to customize the path of your view. You can specify area as part of the _locateView_ call, but more commonly you would specify it as part of a compose binding. Any compose binding that does not include a model, but only a view, has a default area of 'partial'.

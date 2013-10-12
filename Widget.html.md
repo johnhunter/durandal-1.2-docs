@@ -4,9 +4,9 @@ layout: docs
 tags: ['docs','widgets','reference']
 ---
 # Widget
-#### 
+####
 
-> The widget module encapsulates the functionality which enables bindable, skinnable and templatable widgets. Its capabilities are normally leveraged via the knockout widget binding. 
+> The widget module encapsulates the functionality which enables bindable, skinnable and templatable widgets. Its capabilities are normally leveraged via the knockout widget binding.
 
 There are some APIs which are worth mentioning independent of creating and binding:
 
@@ -20,6 +20,6 @@ There are some APIs which are worth mentioning independent of creating and bindi
 
 The widget module follows a very simple convention for mapping widget kinds to modules and views. It assumes the presence of a widgets folder at the root of your project and that there is a single folder per widget, named according to the kind. Inside that folder, it assumes the presence of a controller.js module that should be bound to a view.html file. The widget module allows you to easily change this convention, by replacing any of two functions that control this behavior:
 
-* [overridable](/documentation/Overridable) `function convertKindToModuleId(kind) : string` - Replace this to re-interpret the kind id as a module path. By default it does a lookup for any custom maps added through _mapKind_ and then falls back to the path `"durandal/widgets/{kind}/controller"`.
+* [overridable](Overridable.html.md) `function convertKindToModuleId(kind) : string` - Replace this to re-interpret the kind id as a module path. By default it does a lookup for any custom maps added through _mapKind_ and then falls back to the path `"durandal/widgets/{kind}/controller"`.
 
-* [overridable](/documentation/Overridable) `function convertKindToViewId(kind) : string` - Replace this to re-interpret the kind id as a view id. The default does a lookup for any custom maps added through _mapKind_ and then falls back to the path `"durandal/widgets/{kind}/view"`.
+* [overridable](Overridable.html.md) `function convertKindToViewId(kind) : string` - Replace this to re-interpret the kind id as a view id. The default does a lookup for any custom maps added through _mapKind_ and then falls back to the path `"durandal/widgets/{kind}/view"`.

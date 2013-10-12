@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','modules','how to']
 ---
 # Creating a Module
-#### 
+####
 
 <blockquote>
   <strong>Key Points</strong>
@@ -60,7 +60,7 @@ define(function(require){
 });
 ```
 
-As you can see here, both modules declare themselves by calling _define_. 
+As you can see here, both modules declare themselves by calling _define_.
 The _customerList_ module also indicates that it has a dependency on _backend_ by calling _require_ and passing it the path to that module.
 The value assigned to the _backend_ variable is the same object instance that was returned from the _backend_ module.
 
@@ -110,7 +110,7 @@ As you can see _customerList_ depends on _backend_ and uses the _new_ modifier t
 
 ### Module Ids
 
-Every module in your application has an Id. This Id is derived from its path, relative to your application's _baseUrl_. 
+Every module in your application has an Id. This Id is derived from its path, relative to your application's _baseUrl_.
 Unless otherwise configured, your _baseUrl_ is the same as the location of your _main.js_ file.
 As part of the module definition process, Durandal assigns every module its Id. This is stored in the semi-private field called \_\_moduleId\_\_.
-Should you need to inspect the Id of a module, it is better to use the [system module's](/documentation/system) `getModuleId(object)` function than to access the this field.
+Should you need to inspect the Id of a module, it is better to use the [system module's](system.html.md) `getModuleId(object)` function than to access the this field.

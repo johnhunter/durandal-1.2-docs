@@ -4,9 +4,9 @@ layout: docs
 tags: ['docs','view model binder','reference']
 ---
 # View Model Binder
-#### 
+####
 
-> The _viewModelBinder module_ is used any time the framework needs to bind a view to an object. Usually this happens through using the _composition module_. 
+> The _viewModelBinder module_ is used any time the framework needs to bind a view to an object. Usually this happens through using the _composition module_.
 
 This module exports the following functions:
 
@@ -17,6 +17,6 @@ This module exports the following functions:
 > **Note:** Both the above APIs add helpful logging and debugging support while the framework is in debug mode.
 If you wish the errors to be reported as such, rather than logged, set `viewModelBinder.throwOnErrors = true;`.
 
-* [overridable](/documentation/Overridable) `function beforeBind(obj, view)` - Called before every binding operation. Does nothing by default.
+* [overridable](Overridable.html.md) `function beforeBind(obj, view)` - Called before every binding operation. Does nothing by default.
 
-* [overridable](/documentation/Overridable) `function afterBind(obj, view)` - Called after every binding operation. Does nothing by default.
+* [overridable](Overridable.html.md) `function afterBind(obj, view)` - Called after every binding operation. Does nothing by default.

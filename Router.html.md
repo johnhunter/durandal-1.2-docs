@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','router','reference']
 ---
 # Router
-#### 
+####
 
 > Durandal provides a router plugin, currently based on [SammyJS](http://sammyjs.org/). The router abstracts away the core configuration of Sammy and re-interprets it in terms of durandal's composition and activation mechanism. To use the router, you must require it, configure it and bind it in the UI.
 
@@ -87,7 +87,7 @@ define(function(require) {
 });
 ```
 
-As you can see, the shell configures the route with the most basic configuration by using mapAuto. It then calls the router's _activate_ function, passing in the default route. The activate function of the router returns a promise that resolves when the router is ready to start. To use the router, you should add an activate function to your shell and return the result from that. The application startup infrastructure of Durandal will detect your shell's activate function and call it at the appropriate time, waiting for it's promise to resolve. This allows Durandal to properly orchestrate the timing of composition and databinding along with animations and splash screen display. 
+As you can see, the shell configures the route with the most basic configuration by using mapAuto. It then calls the router's _activate_ function, passing in the default route. The activate function of the router returns a promise that resolves when the router is ready to start. To use the router, you should add an activate function to your shell and return the result from that. The application startup infrastructure of Durandal will detect your shell's activate function and call it at the appropriate time, waiting for it's promise to resolve. This allows Durandal to properly orchestrate the timing of composition and databinding along with animations and splash screen display.
 
 ### Binding
 Once you've configured and activated your router, you won't be able to see the effects of page navigation, unless you have properly bound it to your shell's view. The router exposes a number of observable properties which are useful for binding:
@@ -119,9 +119,9 @@ Here's an example of how you might use a number of those properties to create yo
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid page-host">
-        <!--ko compose: { 
+        <!--ko compose: {
             model: router.activeItem,
             afterCompose: router.afterCompose
         }--><!--/ko-->
@@ -136,28 +136,28 @@ We've already seen a couple ways to customize the router, but there are a few mo
 
 * `function useConvention(rootPath)` - As mentioned above, if you configure a route with only the url, the router can try to determine the moduleId. It does this my simply stripping out any parameters which may be a part of the url pattern. However, a common convention is to have all page view models in a particular path. You can establish that convention by calling this function. If you pass no _rootPath_ then it will be _viewmodels_. As an example, without calling _useConvention_ a call to `mapRoute('myPage/:id')` will yield a moduleId of 'myPage'. But if you call `useConvention('pages')` before you do your mapping, then the same call to _mapRoute_ will result in a moduleId of 'pages/myPage'.
 
-* [overridable](/documentation/Overridable) `function handleInvalidRoute(route, params)` - This is called any time the router cannot locate an appropriate route based on the url. The default implementation logs the information. You can override this function to handle this scenario in your own way.
+* [overridable](Overridable.html.md) `function handleInvalidRoute(route, params)` - This is called any time the router cannot locate an appropriate route based on the url. The default implementation logs the information. You can override this function to handle this scenario in your own way.
 
-* [overridable](/documentation/Overridable) `function onNavigationComplete(routeInfo, params, module)` - When the router successfully completes a navigation to a screen, this function is called. The default implementation uses the _routeInfo_ to set the document's title. You can override this function to set the title yourself or to add any code you wish to execute when a navigation completes.
+* [overridable](Overridable.html.md) `function onNavigationComplete(routeInfo, params, module)` - When the router successfully completes a navigation to a screen, this function is called. The default implementation uses the _routeInfo_ to set the document's title. You can override this function to set the title yourself or to add any code you wish to execute when a navigation completes.
 
-* [overridable](/documentation/Overridable) `function convertRouteToName(route):string` - Takes a route in and returns a calculated name.
+* [overridable](Overridable.html.md) `function convertRouteToName(route):string` - Takes a route in and returns a calculated name.
 
-* [overridable](/documentation/Overridable) `function convertRouteToModuleId(route):string` - Takes a route in and returns a calculated moduleId. Simple transformations of this can be done via the _useConvention_ function above. For more advanced transformations, you can override this function.
+* [overridable](Overridable.html.md) `function convertRouteToModuleId(route):string` - Takes a route in and returns a calculated moduleId. Simple transformations of this can be done via the _useConvention_ function above. For more advanced transformations, you can override this function.
 
-* [overridable](/documentation/Overridable) `function prepareRouteInfo(info)` - This should not normally be overwritten. But advanced users can override this to completely transform the developer's routeInfo input into the final version used to configure the router.
+* [overridable](Overridable.html.md) `function prepareRouteInfo(info)` - This should not normally be overwritten. But advanced users can override this to completely transform the developer's routeInfo input into the final version used to configure the router.
 
-* [overridable](/documentation/Overridable) `function autoConvertRouteToModuleId(route, params)` - This can be overwritten to provide your own convention for automatically converting routes to module ids.
+* [overridable](Overridable.html.md) `function autoConvertRouteToModuleId(route, params)` - This can be overwritten to provide your own convention for automatically converting routes to module ids.
 
-* [overridable](/documentation/Overridable) `function getActivatableInstance(routeInfo, params, module) : object` - Translates the module into the object instance that should be activated by the router. The default implementation returns the module if it is an object or uses new to invoke it if it is a function, returning the result.
+* [overridable](Overridable.html.md) `function getActivatableInstance(routeInfo, params, module) : object` - Translates the module into the object instance that should be activated by the router. The default implementation returns the module if it is an object or uses new to invoke it if it is a function, returning the result.
 
-* [overridable](/documentation/Overridable) `function guardRoute(routeInfo, params, instance) : object` - Before any route is activated, the _guardRoute_ funtion is called. You can plug into this function to add custom logic to allow, deny or redirect based on the requested route. To allow, return _true_. To deny, return _false_. To redirect, return a string with the hash or url. You may also return a promise for any of these values.
+* [overridable](Overridable.html.md) `function guardRoute(routeInfo, params, instance) : object` - Before any route is activated, the _guardRoute_ funtion is called. You can plug into this function to add custom logic to allow, deny or redirect based on the requested route. To allow, return _true_. To deny, return _false_. To redirect, return a string with the hash or url. You may also return a promise for any of these values.
 
 ### Other APIs
 In addition to configuration, binding and customization, there are some basic APIs you may find useful in your application:
 
 * `function navigateBack()` - Causes the router to move backwards in page history.
 
-* `function navigateTo(url [, mode])` - Causes the router to navigate to a specific url. If you include the _mode_ value of 'skip' then a new history entry will be added, but the corresponding route will not be activated. 
+* `function navigateTo(url [, mode])` - Causes the router to navigate to a specific url. If you include the _mode_ value of 'skip' then a new history entry will be added, but the corresponding route will not be activated.
 If you include the _mode_ value of 'replace' then the current history will be replaced and the route will be activated. By default, a new history entry is added and route activation is processed.
 
 * `function replaceLocation(url)` - This is just a wrapper for `navigateTo(url, 'replace');`.

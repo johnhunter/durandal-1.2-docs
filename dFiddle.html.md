@@ -4,11 +4,11 @@ layout: docs
 tags: ['docs','tools']
 ---
 # dFiddle
-#### 
+####
 
 JSFiddle et al. are all great when there's a need to fiddle with CSS/JavaScript/HTML snippets or
-share code during discussions on stackoverflow or newsgroups. Unfortunately, due to the nature of Durandal which encourages you to break down apps into many smaller modules and then use 
-[composition](/documentation/Using-Composition) to stitch them back together, those apps are no longer at their sweet spot. There's no easy
+share code during discussions on stackoverflow or newsgroups. Unfortunately, due to the nature of Durandal which encourages you to break down apps into many smaller modules and then use
+[composition](Using-Composition.html.md) to stitch them back together, those apps are no longer at their sweet spot. There's no easy
  way to deal with multiple smaller external files in tools like JSFiddle. [dFiddle](https://github.com/dFiddle/dFiddle-1.2) to the rescue!
 
 ### What is it?

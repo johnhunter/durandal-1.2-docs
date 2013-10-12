@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','composition','how to']
 ---
 # Using Composition
-#### 
+####
 
 <blockquote>
   <strong>Key Points</strong>
@@ -34,7 +34,7 @@ By leveraging object and function modules with declarative module dependencies, 
 ### Visual Composition
 
 Visual compositon allows you to break down your views into re-usable components and to connect them with their composed, object counterparts.
-This functionality is a central and unique feature of Durandal and is provided by the [Composition Module](/documentation/Composition).
+This functionality is a central and unique feature of Durandal and is provided by the [Composition Module](Composition.html.md).
 While you can use the composition module directly to achieve this in code, the most common way of leveraging it will be through the _compose binding_.
 If you create widgets or use modal dialogs, you will also be leveraging it indirectly. In fact, everything you see presented in the browser's view is run through Durandal's composition pipeline.
 
@@ -115,5 +115,5 @@ Now, the compose binding queries the observable for its value. Here's a few thin
     * Call the function with the _new_ modifier, get its return value, find the view for the return value, bind them and inject them into the DOM.
 
 The important thing to remember in this case is that this is an _observable_. So any time your _activeScreen_ property changes, the composition engine will re-compose that part of the DOM.
-This enables extremely powerful dynamic, changing composition of any part of the dom simply through data-binding. 
-There's lots more the composition engine can do. To dig in deeper have a look at the [reference documentation](/documentation/Composition) and study the sample and starter kit.
+This enables extremely powerful dynamic, changing composition of any part of the dom simply through data-binding.
+There's lots more the composition engine can do. To dig in deeper have a look at the [reference documentation](Composition.html.md) and study the sample and starter kit.

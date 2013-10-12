@@ -4,9 +4,9 @@ layout: docs
 tags: ['docs','app','reference']
 ---
 # App
-#### 
+####
 
-> The _app module_ controls the application lifecycle and surfaces several services commonly used in building a user experience. 
+> The _app module_ controls the application lifecycle and surfaces several services commonly used in building a user experience.
 
 There are a few things that are related to application startup which are intended to be used in your applications's _main module_.
 
@@ -24,4 +24,4 @@ There are several other UI services exposed by the _app module_ which are very u
 
 * `function showMessage(message [, title, options]) : promise` - A simple helper function that translates to `return modalDialog.show(new MessageBox(message, title, options));`.
 
-The _app module_ also mixes in functionality from the _events module_ providing a default application-wide eventing mechanism. See the [event module's docs](/documentation/Events) for details of those functions.
+The _app module_ also mixes in functionality from the _events module_ providing a default application-wide eventing mechanism. See the [event module's docs](Events.html.md) for details of those functions.

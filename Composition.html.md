@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','composition','reference']
 ---
 # Composition
-#### 
+####
 
 > The core concept at the heart of Durandal is **Composition**. Development of complex UI is significantly simplified by breaking the UI down into small pieces that can be intelligently composed at runtime with little to no effort on the part of the developer. The _composition module_ encapsulates the functionality related to this key principle.
 
@@ -16,8 +16,8 @@ The _element_ is the dom node to compose the UI into. The _settings_ object cont
 
 > **Note:** Use of the composition module directly by an application developer is rare. It is used directly by the infrastructure of Durandal and most commonly exposed to the application developer in a more convenient form. For example the APIs for showing a modal dialog, showing a message box or setting the application root all invoke the composition functionality. Widgets also use composition. The most common way a developer uses this functionality is through the KnockoutJS _compose_ binding handler extension. Examples of this are shown inline below.
 
-#### Settings can be a string. 
-If this is the case, it is assumed to be an identifier either for a module or for a view. If the string ends in an extension recognized by the view engine, then the _viewLocator module_ is used by invoking its _locateView_ function, which returns the identified view partial, actualized as a dom fragment. The _viewModelBinder module_ is then used to bind that view to the _bindingContext_ and it is injected into the element specified by the call to _compose_. 
+#### Settings can be a string.
+If this is the case, it is assumed to be an identifier either for a module or for a view. If the string ends in an extension recognized by the view engine, then the _viewLocator module_ is used by invoking its _locateView_ function, which returns the identified view partial, actualized as a dom fragment. The _viewModelBinder module_ is then used to bind that view to the _bindingContext_ and it is injected into the element specified by the call to _compose_.
 
 > **Note:** When no model is specified, the view is interpreted to be a partial view. In this case, the infrastructure sets the _area_ to 'partial'. See _Areas_ below for more information.
 
@@ -65,7 +65,7 @@ By default, if no view is specified, the _viewLocator_ is used to locate the con
 1. `data-bind="compose: { model:$data, strategy:'myCustomViewStrategy' }"` - Uses RequireJS to resolve a module with id of "myCustomViewStrategy". This strategy is then invoked for _$data_ to find the view. The resultant view is then bound to _$data_ and injected into the node in which the binding is declared.
 
 #### Containerless Composition
-The composition features presented here all work with Knockout's containerless comment syntax as well, so the following is valid: 
+The composition features presented here all work with Knockout's containerless comment syntax as well, so the following is valid:
 
 `<!-- ko compose: activeItem--><!--/ko-->`
 
@@ -75,7 +75,7 @@ The composition features presented here all work with Knockout's containerless c
 
 When the composition mechanism switches nodes in and out of the dom, it can use a _transition_. To specify a transition, add the _transition_ value to your compose binding. It should be set to a transition name. To create a custom transition, create a folder inside the durandal folder called _transitions_ and place a module there named according to the transition identifier you wish to specify in your compose binding. The transition module you create is a function module with a signature as follows `function (parent, newChild, settings) : promise` _parent_ is the parent dom node of the content being switched, _newChild_ is the new dom node to add into the parent, and _settings_ are all the resolved composition settings passed from the binding. You should return a promise from your transition that resolves when the transition is complete. You can set a default transition for all compositions by setting the composition module's `defaultTransitionName` property.
 
-> **Note:** Transitions are expected to be located in a _transitions_ folder under the durandal folder as stated above. However, you can easily change this conventional location. To do so override the compose module's [overridable](/documentation/Overridable) `convertTransitionToModuleId` function.
+> **Note:** Transitions are expected to be located in a _transitions_ folder under the durandal folder as stated above. However, you can easily change this conventional location. To do so override the compose module's [overridable](Overridable.html.md) `convertTransitionToModuleId` function.
 
 > **Note:** In order to create versatile and reusable transitions, you should only add/remove elements from the dom using Knockout's virtual element helpers and you should be sure to take into account the possibility of view caching.
 

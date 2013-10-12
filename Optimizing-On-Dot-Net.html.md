@@ -4,7 +4,7 @@ layout: docs
 tags: ['docs','how to','build']
 ---
 # Optimizing on .NET
-#### 
+####
 
 Application optimization is ultimately handled by the [RequireJS](http://requirejs.org/) optimizer, _r.js_.
 This tool is somewhat complicated to use, so a Durandal-specific optimizer is provided, which generates the proper _r.js_ configuration based on your project.
@@ -21,7 +21,7 @@ To deploy, simply remove your RequireJS script reference from your HTML page and
 
 > **Note:** If you are using the Durandal Starter Kit, then the _Index.cshtml_ is already set up to reference the correct script configuration based on your server mode.
 
-#### 
+####
 
 > **Note:** When the Durandal optimizer runs r.js it configures it to replace RequireJS with Almond, a streamlined module loader which assumes an optimized build and is much smaller, since it doesn't need to handle dynamic module downloads.
-For more information, read this bit on [using Durandal and Almond together](/documentation/Using-Durandal-with-Almond).
+For more information, read this bit on [using Durandal and Almond together](Using-Durandal-with-Almond.html.md).
