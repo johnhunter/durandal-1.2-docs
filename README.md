@@ -25,7 +25,6 @@ For for further info and source see [github.com/BlueSpire/Durandal](https://gith
         <ul>
             <li>Core Modules
             <ul>
-                <li><a href="activator.html.md">activator</a></li>
                 <li><a href="App.html.md">app</a></li>
                 <li><a href="Events.html.md">events</a></li>
                 <li><a href="HTTP.html.md">http</a></li>
@@ -61,15 +60,6 @@ For for further info and source see [github.com/BlueSpire/Durandal](https://gith
         <ul>
             <li><a href="Showing-Message-Boxes-And-Modals.html.md">Showing Message Boxes and Modals</a></li>
             <li><a href="Creating-A-Widget.html.md">Creating a Widget</a></li>
-            <li><a href="Talking-To-Data.html.md">Talking to Data</a></li>
-            <li><a href="Binding-Plain-Javascript-Objects.html.md">Binding Plain Javascript Objects</a></li>
-        </ul>
-    </li>
-    <li>Customization
-        <ul>
-            <li><a href="Customizing-Main.html.md">Customizing Main</a></li>
-            <li><a href="Customizing-System.html.md">Customizing System</a></li>
-            <li><a href="View-Location.html.md">View Location &amp; Customization</a></li>
         </ul>
     </li>
     <li>Build and Deploy
